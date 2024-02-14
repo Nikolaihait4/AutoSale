@@ -1,7 +1,7 @@
-import { getAllCars } from 'components/services/api';
 import { useState, useEffect } from 'react';
+import { getAllCars } from 'services/api';
 
-const Home = () => {
+const Catalog = () => {
   const [cars, setCars] = useState([]);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ const Home = () => {
               height="auto"
             />
             <p>
-              {car.make} {car.model}, {car.year}
+              {car.make} {car.model} {car.year}
             </p>
             <p>
               {car.address} {car.rentalCompany} {car.accessories.join(' ')}
@@ -45,4 +45,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Catalog;

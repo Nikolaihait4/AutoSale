@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/AutoSale/static/css/main.7acaea2f.css",
-    "main.js": "/AutoSale/static/js/main.6b9c4ebf.js",
+    "main.js": "/AutoSale/static/js/main.3c155bc9.js",
     "index.html": "/AutoSale/index.html",
     "main.7acaea2f.css.map": "/AutoSale/static/css/main.7acaea2f.css.map",
-    "main.6b9c4ebf.js.map": "/AutoSale/static/js/main.6b9c4ebf.js.map"
+    "main.3c155bc9.js.map": "/AutoSale/static/js/main.3c155bc9.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
-    "static/js/main.6b9c4ebf.js"
+    "static/js/main.3c155bc9.js"
   ]
 }

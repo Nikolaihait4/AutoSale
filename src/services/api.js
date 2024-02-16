@@ -8,3 +8,14 @@ export const getAllCars = async () => {
   const response = await carService.get('/advert');
   return response.data;
 };
+
+export const getRandomCar = async () => {
+  const cars = await getAllCars();
+  const randomIndex = Math.floor(Math.random() * cars.length);
+  return cars[randomIndex];
+};
+
+export const getCarById = async carId => {
+  const response = await carService.get(`/advert/${carId}`);
+  return response.data;
+};

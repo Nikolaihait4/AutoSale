@@ -1,0 +1,17 @@
+/* Catalog.module.css */
+
+.favoriteButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #ccc;
+}
+
+.favoriteButton:hover {
+  color: red;
+}
+
+.favorite {
+  color: red;
+}

@@ -8,7 +8,7 @@ import SharedLayout from 'components/SharedLayout/SharedLayout';
 
 export const App = () => {
   return (
-    <Suspense>
+    <Suspense fallback={<div>Loading...</div>}>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />} />

@@ -1,6 +1,9 @@
 /* Catalog.module.css */
 
 .favoriteButton {
+  position: absolute;
+  top: 0;
+  right: 0;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -8,10 +11,134 @@
   color: #ccc;
 }
 
-.favoriteButton:hover {
-  color: red;
+.favoriteButton:hover,
+.favorite {
+  color: transparent;
 }
 
-.favorite {
-  color: red;
+.favoriteButton:hover svg,
+.favorite svg {
+  fill: rgb(52, 112, 255);
+}
+
+.autoContainer {
+  padding: 0 128px;
+}
+
+.autoCard {
+  /* padding: 50px; */
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 29px;
+}
+
+.autoList {
+  position: relative;
+}
+
+.autoImg {
+  position: relative;
+  width: 100%;
+  height: 268px;
+  border-radius: 14px;
+  /* object-fit: cover; */
+}
+
+.autoInfo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.autoModelYear {
+  margin-top: 14px;
+  margin-bottom: 8px;
+  font-family: Manrope;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+
+  /* display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: row; */
+}
+
+.autoModel {
+  color: #3470ff;
+}
+
+.rentalPrice {
+  /* margin-right: auto; */
+}
+
+.autoAdrComp {
+  color: rgba(18, 20, 23, 0.5);
+  font-family: Manrope;
+  font-size: 12px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.autoInform2 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.autoModelFunc {
+  color: rgba(18, 20, 23, 0.5);
+  font-family: Manrope;
+  font-size: 12px;
+  font-weight: 400;
+  margin: 0;
+}
+
+/* Catalog.module.css */
+
+.learnmoreButt {
+  margin-top: 28px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 0;
+  color: rgb(255, 255, 255);
+  font-family: Manrope;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 12px;
+  background: rgb(52, 112, 255);
+  border: none;
+}
+
+.learnmoreButt:hover,
+.learnmoreButt:focus {
+  background: rgb(11, 68, 205);
+}
+
+.butLoadMore {
+  margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  color: rgb(52, 112, 255);
+  font-family: Manrope;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}
+
+.butLoadMore:hover,
+.butLoadMore:focus {
+  color: rgb(11, 68, 205);
 }

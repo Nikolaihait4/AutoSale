@@ -9,6 +9,11 @@ export const getAllCars = async () => {
   return response.data;
 };
 
+export const getCarsWithLimit = async (page, limit) => {
+  const response = await carService.get(`/advert?page=${page}&limit=${limit}`);
+  return response.data;
+};
+
 export const getRandomCar = async () => {
   const cars = await getAllCars();
   const randomIndex = Math.floor(Math.random() * cars.length);

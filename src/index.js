@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import { store } from './reduser/store'; // Обновляем импорт
+import { store } from './reduser/store';
 
 import { App } from 'components/App/App';
 import './index.css';

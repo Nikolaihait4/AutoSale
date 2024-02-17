@@ -8,6 +8,7 @@ import {
 } from '../../reduser/favoritesReducer';
 import { getAllCars } from 'services/api';
 import CarFilter from '../../components/CarFilter/CarFilter';
+import { useNavigate } from 'react-router-dom';
 
 const Catalog = () => {
   const [cars, setCars] = useState([]);
@@ -18,6 +19,7 @@ const Catalog = () => {
   const [selectedBrand, setSelectedBrand] = useState('');
   const favorites = useSelector(state => state.favorites.list);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -75,6 +77,7 @@ const Catalog = () => {
 
       setCars(filteredCars);
       setSelectedBrand(selectedBrand);
+      navigate('/catalog');
     } catch (error) {
       console.error('Error filtering cars:', error);
     } finally {
@@ -89,7 +92,7 @@ const Catalog = () => {
       <div className={styles.autoContainer}>
         <ul className={styles.autoCard}>
           {cars.map(car => (
-            <li key={`${car.make}-${car.model}`} className={styles.autoList}>
+            <li key={car.id} className={styles.autoList}>
               <img
                 className={styles.autoImg}
                 src={car.img}
@@ -99,9 +102,11 @@ const Catalog = () => {
               />
               <div className={styles.autoInfo}>
                 <p className={styles.autoModelYear}>
-                  {car.make}{' '}
-                  <span className={styles.autoModel}>{car.model}</span>,{' '}
-                  {car.year}{' '}
+                  {car.make.split(' ')[0]}{' '}
+                  <span className={styles.autoModel}>
+                    {car.model.split(' ')[0]}
+                  </span>
+                  , {car.year}{' '}
                   <span className={styles.rentalPrice}>{car.rentalPrice}</span>
                 </p>
                 <div className={styles.autoInform2}>
@@ -131,13 +136,13 @@ const Catalog = () => {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    className={styles.heartPath} // Добавляем класс к path элементу
+                    className={styles.heartPath}
                     d="M15.6301 2.45753C15.247 2.07428 14.7922 1.77026 14.2916 1.56284C13.791 1.35542 13.2545 1.24866 12.7126 1.24866C12.1707 1.24866 11.6342 1.35542 11.1336 1.56284C10.633 1.77026 10.1782 2.07428 9.79509 2.45753L9.00009 3.25253L8.20509 2.45753C7.43132 1.68376 6.38186 1.24906 5.28759 1.24906C4.19331 1.24906 3.14386 1.68376 2.37009 2.45753C1.59632 3.2313 1.16162 4.28075 1.16162 5.37503C1.16162 6.4693 1.59632 7.51876 2.37009 8.29253L3.16509 9.08753L9.00009 14.9225L14.8351 9.08753L15.6301 8.29253C16.0133 7.90946 16.3174 7.45464 16.5248 6.95404C16.7322 6.45345 16.839 5.91689 16.839 5.37503C16.839 4.83316 16.7322 4.2966 16.5248 3.79601C16.3174 3.29542 16.0133 2.84059 15.6301 2.45753Z"
                     stroke="white"
-                    strokeOpacity="0.8" // Исправляем свойство stroke-opacity на strokeOpacity
-                    strokeWidth="1.5" // Исправляем свойство stroke-width на strokeWidth
-                    strokeLinecap="round" // Исправляем свойство stroke-linecap на strokeLinecap
-                    strokeLinejoin="round" // Исправляем свойство stroke-linejoin на strokeLinejoin
+                    strokeOpacity="0.8"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </button>

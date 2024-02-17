@@ -1,4 +1,3 @@
-/* Modal.module.css */
 .modalBackdrop {
   position: fixed;
   top: 0;
@@ -16,12 +15,24 @@
   transform: translate(-50%, -50%);
   background-color: #fff;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 24px;
   z-index: 10000;
+  max-width: 60%;
+  max-height: 90%;
+  overflow: auto;
 }
 
 .modalContent {
-  /* Стили содержимого модального окна */
+  padding: 20px;
+  width: 444px;
+  height: auto;
+}
+
+.carImage {
+  width: auto;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .close {
@@ -29,4 +40,141 @@
   top: 10px;
   right: 10px;
   cursor: pointer;
+}
+
+.carInfo {
+  margin: 0;
+  margin-top: 14px;
+  font-family: Manrope;
+  font-size: 18px;
+  font-weight: 500;
+  color: #121417;
+}
+
+.carModel {
+  color: #3470ff;
+}
+
+.deskrip {
+  margin: 0;
+  margin-top: 14px;
+  color: rgb(18, 20, 23);
+  font-family: Manrope;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.fuelConsumption {
+}
+
+.engineSize {
+}
+
+.accessories {
+  margin: 0;
+  margin-top: 24px;
+  color: rgb(18, 20, 23);
+  font-family: Manrope;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.functionalitie {
+  margin: 0;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  color: rgba(18, 20, 23, 0.5);
+  font-family: Manrope;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.conditionsContainer {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0px;
+}
+
+.rentalCondition {
+  margin: 0;
+  font: 400 12px / 1.5 'Montserrat', sans-serif;
+  letter-spacing: -0.02em;
+  color: #363535;
+}
+
+.rentalPrice {
+  margin: 0;
+  font: 400 12px / 1.5 'Montserrat', sans-serif;
+  letter-spacing: -0.02em;
+  color: #363535;
+}
+
+.rentalNumber {
+  color: #3470ff;
+}
+
+.mileage {
+  margin: 0;
+  font: 400 12px / 1.5 'Montserrat', sans-serif;
+  letter-spacing: -0.02em;
+  color: #363535;
+}
+
+.mileageNumber {
+  color: #3470ff;
+}
+
+.rentalButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 0px;
+  margin-top: 20px;
+  border-radius: 8px;
+  padding: 10px 30px;
+  width: 168px;
+  height: auto;
+  background: #3470ff;
+  font: 600 14px / 1.42857 'Manrope', sans-serif;
+  color: #fff;
+  text-decoration: none;
+}
+
+.rentalButton:hover,
+.rentalButton:focus {
+  background: #0b44cd;
+}
+
+.autoAdrComp {
+  color: rgba(18, 20, 23, 0.5);
+  font-family: Manrope;
+  font-size: 12px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.autoInform2 {
+  margin-top: 8px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.autoModelFunc {
+  color: rgba(18, 20, 23, 0.5);
+  font-family: Manrope;
+  font-size: 12px;
+  font-weight: 400;
+  margin: 0;
 }

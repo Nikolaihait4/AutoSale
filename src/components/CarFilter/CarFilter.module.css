@@ -1,0 +1,21 @@
+.carFilter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.carFilter label {
+  margin-bottom: 5px;
+}
+
+.carFilter select {
+  width: 200px;
+}
+
+.carBrand {
+  color: rgb(138, 138, 137);
+  font-family: Manrope;
+  font-size: 14px;
+  font-weight: 500;
+}

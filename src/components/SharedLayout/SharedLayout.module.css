@@ -1,0 +1,49 @@
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #333;
+  font-size: 20px;
+  margin: 0 20px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navLink::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 3px;
+  background-color: #3470ff;
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+.navLink:hover::after,
+.navLink.active::after {
+  width: calc(100% - 40px);
+}
+
+.navLink:hover {
+  color: #3470ff;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px 0 rgba(52, 112, 255, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 20px 10px rgba(52, 112, 255, 0);
+  }
+}
+
+.active {
+  animation: glow 1.5s infinite alternate;
+}

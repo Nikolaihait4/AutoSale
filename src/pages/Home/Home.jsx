@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Home.module.css';
-import { getAllCars } from 'services/api'; // Импортируем функцию getAllCars для получения всех машин
+import { getAllCars } from 'services/api';
+import { v4 as uuidv4 } from 'uuid';
 
 const Home = () => {
   const [cars, setCars] = useState([]);
@@ -37,7 +38,7 @@ const Home = () => {
       <div className={styles.autoContainer}>
         <ul className={styles.autoCard}>
           {cars.map(car => (
-            <li key={car.id} className={styles.autoList}>
+            <li key={uuidv4()} className={styles.autoList}>
               <img
                 className={styles.autoImg}
                 src={car.img}

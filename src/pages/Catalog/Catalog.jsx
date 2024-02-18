@@ -3,9 +3,10 @@ import { useDispatch } from 'react-redux';
 import Modal from 'components/Modal/Modal';
 import CarFilter from 'components/CarFilter/CarFilter';
 import { getAllCars } from 'services/api';
-import { toast } from 'react-toastify'; // импорт уведомлений из React-Toastify
+import { toast } from 'react-toastify';
+import { v4 as uuidv4 } from 'uuid';
 
-import 'react-toastify/dist/ReactToastify.css'; // импорт стилей React-Toastify
+import 'react-toastify/dist/ReactToastify.css';
 
 import styles from './Catalog.module.css';
 import {
@@ -100,7 +101,7 @@ const Catalog = () => {
       <div className={styles.autoContainer}>
         <ul className={styles.autoCard}>
           {cars.map(car => (
-            <li key={car.id} className={styles.autoList}>
+            <li key={uuidv4()} className={styles.autoList}>
               <img
                 className={styles.autoImg}
                 src={car.img}

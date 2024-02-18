@@ -1,29 +1,29 @@
 {
   "files": {
     "main.css": "/AutoSale/static/css/main.92d5003f.css",
-    "main.js": "/AutoSale/static/js/main.1c0f0725.js",
+    "main.js": "/AutoSale/static/js/main.c09a6169.js",
     "static/css/936.98281505.chunk.css": "/AutoSale/static/css/936.98281505.chunk.css",
-    "static/js/936.efeb589b.chunk.js": "/AutoSale/static/js/936.efeb589b.chunk.js",
+    "static/js/936.85b4a78a.chunk.js": "/AutoSale/static/js/936.85b4a78a.chunk.js",
     "static/css/635.e243d9b0.chunk.css": "/AutoSale/static/css/635.e243d9b0.chunk.css",
-    "static/js/635.b8bc4046.chunk.js": "/AutoSale/static/js/635.b8bc4046.chunk.js",
+    "static/js/635.d82259b5.chunk.js": "/AutoSale/static/js/635.d82259b5.chunk.js",
     "static/css/966.1dc76e8e.chunk.css": "/AutoSale/static/css/966.1dc76e8e.chunk.css",
     "static/js/966.6865c63d.chunk.js": "/AutoSale/static/js/966.6865c63d.chunk.js",
-    "static/js/294.c442f4f3.chunk.js": "/AutoSale/static/js/294.c442f4f3.chunk.js",
+    "static/js/319.e2866ec7.chunk.js": "/AutoSale/static/js/319.e2866ec7.chunk.js",
     "static/css/544.9e9c391f.chunk.css": "/AutoSale/static/css/544.9e9c391f.chunk.css",
     "index.html": "/AutoSale/index.html",
     "main.92d5003f.css.map": "/AutoSale/static/css/main.92d5003f.css.map",
-    "main.1c0f0725.js.map": "/AutoSale/static/js/main.1c0f0725.js.map",
+    "main.c09a6169.js.map": "/AutoSale/static/js/main.c09a6169.js.map",
     "936.98281505.chunk.css.map": "/AutoSale/static/css/936.98281505.chunk.css.map",
-    "936.efeb589b.chunk.js.map": "/AutoSale/static/js/936.efeb589b.chunk.js.map",
+    "936.85b4a78a.chunk.js.map": "/AutoSale/static/js/936.85b4a78a.chunk.js.map",
     "635.e243d9b0.chunk.css.map": "/AutoSale/static/css/635.e243d9b0.chunk.css.map",
-    "635.b8bc4046.chunk.js.map": "/AutoSale/static/js/635.b8bc4046.chunk.js.map",
+    "635.d82259b5.chunk.js.map": "/AutoSale/static/js/635.d82259b5.chunk.js.map",
     "966.1dc76e8e.chunk.css.map": "/AutoSale/static/css/966.1dc76e8e.chunk.css.map",
     "966.6865c63d.chunk.js.map": "/AutoSale/static/js/966.6865c63d.chunk.js.map",
-    "294.c442f4f3.chunk.js.map": "/AutoSale/static/js/294.c442f4f3.chunk.js.map",
+    "319.e2866ec7.chunk.js.map": "/AutoSale/static/js/319.e2866ec7.chunk.js.map",
     "544.9e9c391f.chunk.css.map": "/AutoSale/static/css/544.9e9c391f.chunk.css.map"
   },
   "entrypoints": [
     "static/css/main.92d5003f.css",
-    "static/js/main.1c0f0725.js"
+    "static/js/main.c09a6169.js"
   ]
 }

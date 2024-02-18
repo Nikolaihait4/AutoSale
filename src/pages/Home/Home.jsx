@@ -4,21 +4,17 @@ import { getAllCars } from 'services/api'; // Импортируем функц�
 
 const Home = () => {
   const [cars, setCars] = useState([]);
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setLoading(true);
-        const carsData = await getAllCars(); // Получаем все машины
+        const carsData = await getAllCars();
         const randomCars = carsData
           .sort(() => Math.random() - 0.5)
-          .slice(0, 12); // Выбираем случайные 12 машин
-        setCars(randomCars); // Устанавливаем полученные машины в состояние
+          .slice(0, 12);
+        setCars(randomCars);
       } catch (error) {
         console.error('Error fetching cars:', error);
-      } finally {
-        setLoading(false);
       }
     };
 

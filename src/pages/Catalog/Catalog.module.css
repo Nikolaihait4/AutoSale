@@ -22,11 +22,10 @@
 }
 
 .autoContainer {
-  padding: 0 128px;
 }
 
 .autoCard {
-  /* padding: 50px; */
+  padding-left: 0;
   list-style-type: none;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -50,7 +49,6 @@
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  gap: 8px;
 }
 
 .autoModelYear {
@@ -60,11 +58,6 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
-
-  /* display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-direction: row; */
 }
 
 .autoModel {
@@ -88,7 +81,6 @@
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  gap: 4px;
 }
 
 .autoModelFunc {
@@ -139,4 +131,12 @@
 .butLoadMore:hover,
 .butLoadMore:focus {
   color: rgb(11, 68, 205);
+}
+
+.autoSpan {
+  padding-right: 12px;
+}
+
+.autoSpanLast {
+  padding-right: 0;
 }

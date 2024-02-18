@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import favoritesReducer from './favoritesReducer.js';
-import filtersReducer from './filtersReduser.js';
+import favoritesReducer from './favoritesReducer';
+import filtersReducer from './filtersReducer';
 
 const rootReducer = combineReducers({
   favorites: favoritesReducer,

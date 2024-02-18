@@ -1,12 +1,17 @@
 import React from 'react';
-import { NavLink, Outlet, useLocation } from 'react-router-dom';
+import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import styles from './SharedLayout.module.css';
 
 const SharedLayout = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleCatalogClick = () => {
+    navigate('/catalog', { replace: true });
+  };
 
   return (
-    <div>
+    <div className={styles.navContainer}>
       <header className={styles.navbar}>
         <NavLink
           to="/"
@@ -19,6 +24,7 @@ const SharedLayout = () => {
           className={
             location.pathname === '/catalog' ? styles.active : styles.navLink
           }
+          onClick={handleCatalogClick}
         >
           Catalog
         </NavLink>

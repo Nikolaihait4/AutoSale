@@ -6,12 +6,14 @@ import { store } from './reduser/store';
 
 import { App } from 'components/App/App';
 import './index.css';
+import { ToastContainer } from 'react-toastify';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter basename="/AutoSale">
         <App />
+        <ToastContainer />
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,

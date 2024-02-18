@@ -1,16 +1,24 @@
 .carFilter {
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   margin-bottom: 20px;
+  align-content: center;
+  flex-wrap: wrap;
 }
 
 .carFilter label {
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
-.carFilter select {
-  width: 200px;
+.select {
+  border: none;
+  border-radius: 14px;
+  padding: 14px 89px 14px 18px;
+  width: 224px;
+  height: 48px;
+  width: 224px;
+  background: #f7f7fb;
 }
 
 .carBrand {
@@ -18,4 +26,12 @@
   font-family: Manrope;
   font-size: 14px;
   font-weight: 500;
+}
+
+.carFilter select option {
+  font: 500 16px / 1.25 'Manrope', sans-serif;
+  color: rgba(18, 20, 23, 0.2);
+  border: none;
+  border-radius: 14px;
+  background: rgb(247, 247, 251);
 }

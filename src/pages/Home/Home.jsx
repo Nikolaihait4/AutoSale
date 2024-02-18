@@ -25,6 +25,15 @@ const Home = () => {
     <div>
       <h1 className={styles.autoBest}>Best of the Week</h1>
 
+      <h2 className={styles.autoBest2}>Найкраще за тиждень</h2>
+
+      <p className={styles.homeDescription}>
+        Ласкаво просимо до нашого веб-сайту, де ви можете знайти найкращі
+        автомобілі для оренди в Україні. Наші автомобілі відомі своєю якістю та
+        надійністю. Приєднуйтесь до нас сьогодні та знайдіть ідеальний
+        автомобіль для вашої подорожі.
+      </p>
+
       <div className={styles.autoContainer}>
         <ul className={styles.autoCard}>
           {cars.map(car => (
@@ -47,12 +56,19 @@ const Home = () => {
                 </p>
                 <div className={styles.autoInform2}>
                   <p className={styles.autoAdrComp}>
-                    {car.address.split(',')[1]} | {car.address.split(',')[2]} |
-                    {car.rentalCompany} |
-                  </p>
-                  <p className={styles.autoModelFunc}>
-                    {car.type} {car.model} {car.id}{' '}
-                    {car.functionalities[0].split(' ').slice(0, 2).join(' ')}
+                    <span className={styles.autoSpan}>
+                      {car.address.split(',')[1]}
+                    </span>
+                    <span className={styles.autoSpan}>
+                      {car.address.split(',')[2]}
+                    </span>
+                    <span className={styles.autoSpan}>{car.rentalCompany}</span>
+                    <span className={styles.autoSpan}>{car.type}</span>
+                    <span className={styles.autoSpan}>{car.model}</span>
+                    <span className={styles.autoSpan}>{car.id}</span>
+                    <span className={styles.autoSpanLast}>
+                      {car.functionalities[0].split(' ').slice(0, 1).join(' ')}
+                    </span>
                   </p>
                 </div>
               </div>

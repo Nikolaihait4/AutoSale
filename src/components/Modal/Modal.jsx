@@ -42,23 +42,34 @@ const Modal = ({ car, closeModal }) => {
           </h2>
           <div className={styles.autoInform2}>
             <p className={styles.autoAdrComp}>
-              {car.address.split(',')[1]} | {car.address.split(',')[2]} |
-              {car.rentalCompany}
-            </p>
-            <p className={styles.autoModelFunc}>
-              {car.type} {car.model} id:{car.id}{' '}
-              {car.functionalities[0].split(' ').slice(0, 2).join(' ')}
+              <span className={styles.autoSpan}>
+                {car.address.split(',')[1]}
+              </span>
+              <span className={styles.autoSpan}>
+                {car.address.split(',')[2]}
+              </span>
+              <span className={styles.autoSpan}>{car.rentalCompany}</span>
+              <span className={styles.autoSpan}>{car.type}</span>
+              <span className={styles.autoSpan}>{car.model}</span>
+              <span className={styles.autoSpan}>{car.id}</span>
+              <span className={styles.autoSpanLast}>
+                {car.functionalities[0].split(' ').slice(0, 1).join(' ')}
+              </span>
             </p>
           </div>
           <p className={styles.deskrip}>{car.description}</p>
           <p className={styles.accessories}>Accessories and functionalities:</p>
           <p className={styles.functionalitie}>
-            {car.accessories.join('| ')}
+            {car.accessories.join(' | ')}
             {car.functionalities.join(' | ')}
           </p>
           <p className={styles.accessories}>Rental Conditions:</p>
           <div className={styles.conditionsContainer}>
-            <p className={styles.rentalCondition}>{car.rentalConditions}</p>
+            {car.rentalConditions.split('\n').map((condition, index) => (
+              <p key={index} className={styles.rentalCondition}>
+                {condition}
+              </p>
+            ))}
             <p className={styles.mileage}>
               Mileage:{' '}
               <span className={styles.mileageNumber}>{car.mileage}</span>

@@ -1,36 +1,37 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import Modal from 'components/Modal/Modal';
+import CarFilter from 'components/CarFilter/CarFilter';
+import { getAllCars } from 'services/api';
+import { toast } from 'react-toastify'; // импорт уведомлений из React-Toastify
+
+import 'react-toastify/dist/ReactToastify.css'; // импорт стилей React-Toastify
+
 import styles from './Catalog.module.css';
-import { useSelector, useDispatch } from 'react-redux';
 import {
   addToFavorites,
   removeFromFavorites,
 } from '../../reduser/favoritesReducer';
-import { getAllCars } from 'services/api';
-import CarFilter from '../../components/CarFilter/CarFilter';
-import { useNavigate } from 'react-router-dom';
 
 const Catalog = () => {
+  const [allCars, setAllCars] = useState([]);
   const [cars, setCars] = useState([]);
-  const [selectedCar, setSelectedCar] = useState(null);
-  const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [brands, setBrands] = useState([]);
+  const [selectedCar, setSelectedCar] = useState(null);
   const [selectedBrand, setSelectedBrand] = useState('');
-  const favorites = useSelector(state => state.favorites.list);
+  const [favorites, setFavorites] = useState([]);
+  const [page, setPage] = useState(1);
+  const [perPage] = useState(12);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
         const carsData = await getAllCars();
-        const start = (page - 1) * 12;
-        const end = start + 12;
-        const slicedCars = carsData.slice(start, end);
-        setCars(prevCars => [...prevCars, ...slicedCars]);
-
+        setAllCars(carsData);
+        setCars(carsData.slice(0, perPage));
         const uniqueBrands = [...new Set(carsData.map(car => car.make))];
         setBrands(uniqueBrands);
       } catch (error) {
@@ -41,7 +42,23 @@ const Catalog = () => {
     };
 
     fetchData();
-  }, [page]);
+  }, [perPage]);
+
+  const handleFilterChange = async selectedBrand => {
+    try {
+      setLoading(true);
+      const filteredCars = allCars.filter(
+        car => !selectedBrand || car.make === selectedBrand
+      );
+      setCars(filteredCars.slice(0, perPage));
+      setSelectedBrand(selectedBrand);
+      setPage(1);
+    } catch (error) {
+      console.error('Error filtering cars:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const closeModal = () => {
     setSelectedCar(null);
@@ -51,9 +68,13 @@ const Catalog = () => {
     const isFavorite = favorites.some(favCar => favCar.id === car.id);
 
     if (isFavorite) {
+      setFavorites(favorites.filter(favCar => favCar.id !== car.id));
       dispatch(removeFromFavorites(car));
+      toast.error('Car removed from favorites'); // Уведомление об удалении машины из избранного
     } else {
+      setFavorites([...favorites, car]);
       dispatch(addToFavorites(car));
+      toast.success('Car added to favorites'); // Уведомление о добавлении машины в избранное
     }
   };
 
@@ -63,31 +84,18 @@ const Catalog = () => {
   };
 
   const loadMore = () => {
-    setPage(prevPage => prevPage + 1);
-  };
+    const startIdx = page * perPage;
+    const endIdx = (page + 1) * perPage;
+    const nextCars = allCars.slice(startIdx, endIdx);
 
-  const handleFilterChange = async selectedBrand => {
-    try {
-      setLoading(true);
-      const carsData = await getAllCars();
-
-      const filteredCars = selectedBrand
-        ? carsData.filter(car => car.make === selectedBrand)
-        : carsData;
-
-      setCars(filteredCars);
-      setSelectedBrand(selectedBrand);
-      navigate('/catalog');
-    } catch (error) {
-      console.error('Error filtering cars:', error);
-    } finally {
-      setLoading(false);
+    if (nextCars.length > 0) {
+      setCars(prevCars => [...prevCars, ...nextCars]);
+      setPage(prevPage => prevPage + 1);
     }
   };
 
   return (
     <div>
-      {/* <h1>Cars List</h1> */}
       <CarFilter brands={brands} onFilterChange={handleFilterChange} />
       <div className={styles.autoContainer}>
         <ul className={styles.autoCard}>
@@ -111,12 +119,19 @@ const Catalog = () => {
                 </p>
                 <div className={styles.autoInform2}>
                   <p className={styles.autoAdrComp}>
-                    {car.address.split(',')[1]} | {car.address.split(',')[2]} |
-                    {car.rentalCompany} |
-                  </p>
-                  <p className={styles.autoModelFunc}>
-                    {car.type} {car.model} {car.id}{' '}
-                    {car.functionalities[0].split(' ').slice(0, 2).join(' ')}
+                    <span className={styles.autoSpan}>
+                      {car.address.split(',')[1]}
+                    </span>
+                    <span className={styles.autoSpan}>
+                      {car.address.split(',')[2]}
+                    </span>
+                    <span className={styles.autoSpan}>{car.rentalCompany}</span>
+                    <span className={styles.autoSpan}>{car.type}</span>
+                    <span className={styles.autoSpan}>{car.model}</span>
+                    <span className={styles.autoSpan}>{car.id}</span>
+                    <span className={styles.autoSpanLast}>
+                      {car.functionalities[0].split(' ').slice(0, 1).join(' ')}
+                    </span>
                   </p>
                 </div>
               </div>

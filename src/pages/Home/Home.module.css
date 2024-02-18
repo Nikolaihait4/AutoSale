@@ -22,11 +22,25 @@
 }
 
 .autoContainer {
-  padding: 0 128px;
+  /* padding: 0 128px; */
+}
+
+.autoBest2 {
+  font-size: 32px;
+  color: #007bff; /* синій колір */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.homeDescription {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #333; /* колір тексту */
+  text-align: justify;
 }
 
 .autoCard {
-  /* padding: 50px; */
+  padding: 0;
   list-style-type: none;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -60,11 +74,6 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
-
-  /* display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-direction: row; */
 }
 
 .autoModel {
@@ -169,4 +178,12 @@
   font-family: 'Arial', sans-serif;
   animation: slideIn 1s ease forwards, pulse 2s infinite alternate;
   text-align: center;
+}
+
+.autoSpan {
+  padding-right: 12px;
+}
+
+.autoSpanLast {
+  padding-right: 0;
 }

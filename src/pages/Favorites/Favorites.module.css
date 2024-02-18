@@ -22,11 +22,10 @@
 }
 
 .mainContainer {
-  padding: 0 128px;
 }
 
 .autoCard {
-  /* padding: 50px; */
+  padding: 0;
   list-style-type: none;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -119,4 +118,12 @@
 .learnmoreButt:hover,
 .learnmoreButt:focus {
   background: rgb(11, 68, 205);
+}
+
+.autoSpan {
+  padding-right: 12px;
+}
+
+.autoSpanLast {
+  padding-right: 0;
 }

@@ -5,6 +5,10 @@ import {
   removeFromFavorites,
   addToFavorites,
 } from '../../reduser/favoritesReducer';
+import { toast } from 'react-toastify'; // Импорт уведомлений из React-Toastify
+
+import 'react-toastify/dist/ReactToastify.css'; // Импорт стилей React-Toastify
+
 import styles from './Favorites.module.css';
 import CarFilter from '../../components/CarFilter/CarFilter';
 
@@ -34,8 +38,10 @@ const Favorites = () => {
 
     if (isFavorite) {
       dispatch(removeFromFavorites(car));
+      toast.error('Car removed from favorites'); // Уведомление об удалении машины из избранного
     } else {
       dispatch(addToFavorites(car));
+      toast.success('Car added to favorites'); // Уведомление о добавлении машины в избранное
     }
   };
 
@@ -45,7 +51,6 @@ const Favorites = () => {
 
   return (
     <div className={styles.mainContainer}>
-      {/* <h1>Favorite Cars List</h1> */}
       <CarFilter brands={brands} onFilterChange={handleFilterChange} />
       <ul className={styles.autoCard}>
         {favoriteCars
@@ -70,12 +75,19 @@ const Favorites = () => {
                 </p>
                 <div className={styles.autoInform2}>
                   <p className={styles.autoAdrComp}>
-                    {car.address.split(',')[1]} | {car.address.split(',')[2]} |
-                    {car.rentalCompany} |
-                  </p>
-                  <p className={styles.autoModelFunc}>
-                    {car.type} {car.model} {car.id}{' '}
-                    {car.functionalities[0].split(' ').slice(0, 2).join(' ')}
+                    <span className={styles.autoSpan}>
+                      {car.address.split(',')[1]}
+                    </span>
+                    <span className={styles.autoSpan}>
+                      {car.address.split(',')[2]}
+                    </span>
+                    <span className={styles.autoSpan}>{car.rentalCompany}</span>
+                    <span className={styles.autoSpan}>{car.type}</span>
+                    <span className={styles.autoSpan}>{car.model}</span>
+                    <span className={styles.autoSpan}>{car.id}</span>
+                    <span className={styles.autoSpanLast}>
+                      {car.functionalities[0].split(' ').slice(0, 1).join(' ')}
+                    </span>
                   </p>
                 </div>
               </div>
